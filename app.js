@@ -6,13 +6,13 @@ const app= express();
 const API_KEY= process.env.API_KEY;
 app.get('/api/weather', async (req, res)=>{
    const city=req.query.city;
-   const responce=await axios.get('http://api.weatherstack.com/current',{
+   const response=await axios.get('http://api.weatherstack.com/current',{
       params:{
          access_key: API_KEY,
          query: city
       }
    })
-    res.json(responce.data)
+    res.json(response.data)
    
 })
 app.use(express.static('public'))
